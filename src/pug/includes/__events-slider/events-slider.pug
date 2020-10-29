@@ -1,0 +1,35 @@
+mixin events-slider(events)
+  .events-slider__wrap
+    .events-slider__control
+      +buttons({type:"circle", icon: "prev",class:"events-slider__pagination--prev"})
+    .events-slider__card
+      .events-slider__pagination
+      .events-slider__container
+        .events-slider__inner.swiper-wrapper
+          each event in events
+            .events-card__wrap.swiper-slide
+              .events-card__wrap-img
+                img(src=event.img alt=event.title)
+              p= event.date
+              h3= event.title
+              .events-card__wrap-desc
+                p= event.desc 
+              .events-card__participants-wrap
+                if event.users.length>0
+                  h3 Кто на борту
+                else 
+                  h3 Станьте первым!
+                .events-card__participants-inner
+                  .events-card__icon-check(class=event.users.length==0 ? "-icon-nocheck": "")
+                  .events-card__users-wrap
+                    if(event.users.length>4)
+                      .events-card__users-img
+                        span= event.users.length-5 
+                    - for(let i=3; i>=0; i--) 
+                      if (event.users[i])
+                        img(src=event.users[i])
+                      else 
+                        .events-card__users-img.-icon-nouser
+                +buttons({color: "transparent", text: "Хочу участвовать"})
+    .events-slider__control
+      +buttons({type:"circle", icon: "next",class: "events-slider__pagination--next"})

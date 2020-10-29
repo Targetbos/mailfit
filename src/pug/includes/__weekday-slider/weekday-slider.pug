@@ -1,0 +1,26 @@
+mixin weekday-slider(weekday)
+  .weekday-slider
+    .weekday-slider__control.weekday-slider__navigation--prev
+      +buttons({type:"circle", icon: "prev"})
+    .weekday-slider__container
+      .weekday-slider__wrapper.swiper-wrapper
+        each thumbnails in weekday
+          .weekday-thumb.swiper-slide.js__slide
+            .weekday-thumb__slide.weekday-thumb__slide-previous
+              img(src="")
+            .weekday-thumb__slide
+              each thumb in thumbnails.img
+                .weekday-thumb__page.js__wrap-image
+                  .weekday-thumb__image
+                    img(src=thumb alt="")
+                  .weekday-thumb__button
+            .weekday-thumb__slide.weekday-thumb__slide-next
+              img(src="")
+            .weekday-thumb__desc
+              h3 #{thumbnails.title}  
+              .date-text #{thumbnails.date}
+      //- .swiper-button-prev
+      //- .swiper-button-next
+
+    .weekday-slider__control.weekday-slider__navigation--next
+      +buttons({type:"circle", icon: "next"})

@@ -1,8 +1,4 @@
 import "./assets/scss/main.scss";
-
-// import Vue from "vue";
-// import App from "./components/App.vue";
-
-new Vue({
-  render: h => h(App),
-}).$mount('#wrapper');
+import "./pug/includes/__slider-participants/slider-participants";
+import "./pug/includes/__events-slider/events-slider";
+import "./pug/includes/__weekday-slider/weekday-slider";

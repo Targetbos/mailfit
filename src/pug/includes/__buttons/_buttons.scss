@@ -1,0 +1,165 @@
+button {
+  display: block;
+  position: relative;
+  border-radius: rem(8);
+  padding: 1.17rem 1.77rem;
+  margin: 0.2rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  &.-red {
+    background: map_get($color, bgBtnRed);
+    &:hover {
+      background: map_get($color, bgBtnRedHover);
+    }
+    &:active {
+      background: map_get($color, bgBtnRed);
+    }
+  }
+  &.-blue {
+    display: flex;
+    align-items: center;
+    background: map_get($color, bgBtnBlue);
+    &:before {
+      content: "";
+      display: inline-block;
+      width: rem(25);
+      height: rem(25);
+      margin-right: rem(17);
+      background: url("images/buttons.png") no-repeat;
+      background-size: 805% auto;
+      background-position: 44% 72%;
+    }
+    &:hover {
+      background: map_get($color, bgBtnBlueHover);
+    }
+    &:active {
+      background: map_get($color, bgBtnBlue);
+    }
+  }
+  &.-transparent {
+    background: transparent;
+    border: rem(2) solid map_get($color, cFFFFFF);
+    &:hover {
+      background: map_get($color, bgBtnRed);
+      border-color: map_get($color, bgBtnRed);
+    }
+    &:active {
+      background: transparent;
+      border: rem(2) solid map_get($color, cFFFFFF);
+    }
+  }
+  &.-circle {
+    display: block;
+    position: relative;
+    width: rem(80);
+    height: rem(80);
+    border-radius: 50%;
+    padding: 0;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &.-icon-triangle:before {
+    content: "";
+    width: rem(28);
+    height: rem(28);
+    background: url("images/buttons.png") no-repeat;
+    background-size: 759% auto;
+    background-position: 23% 73%;
+  }
+  &.-icon-user {
+    width: rem(40);
+    height: rem(40);
+    &:before {
+      content: "";
+      width: 1.4rem;
+      height: 1.4rem;
+      background: url("images/buttons.png") no-repeat;
+      background-size: 975% auto;
+      background-position: 85% 71%;
+    }
+  }
+  &.-icon-next {
+    width: rem(40);
+    height: rem(40);
+    background: transparent;
+    &:hover {
+      background: map_get($color, bgBtnRedHover);
+    }
+    &:active {
+      background: map_get($color, bgBtnRed);
+    }
+    &:before {
+      content: "";
+      width: 1rem;
+      height: 1.5rem;
+      background: url("data:image/svg+xml,%3Csvg width='12' height='20' viewBox='0 0 12 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 2.92578L10 10.4258L2 17.9258' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A")
+        no-repeat;
+      left: 60%;
+      top: 55%;
+    }
+  }
+  &.-icon-prev {
+    @extend .-icon-next;
+    transform: rotate(180deg);
+  }
+  &.-icon-close {
+    border: none;
+    display: block;
+    width: rem(27);
+    height: rem(27);
+    transform: rotate(45deg);
+    color: map_get($color, cFFFFFF);
+    &:before {
+      content: "+";
+      position: absolute;
+      font-size: rem(24);
+      left: 50%;
+      top: 44%;
+    }
+  }
+  &.-icon-sun {
+    display: block;
+    width: rem(30);
+    height: rem(30);
+    background: url("images/buttons.png") no-repeat;
+    background-size: 640% auto;
+    background-position: 2% 75%;
+  }
+  &.-icon-moon {
+    display: block;
+    width: rem(30);
+    height: rem(30);
+    background: url("images/buttons.png") no-repeat;
+    background-size: 640% auto;
+    background-position: 0% 100%;
+    &:hover {
+      opacity: 0.7;
+    }
+    &:active {
+      opacity: 1;
+    }
+  }
+
+  & span {
+    font-family: $mainFont;
+    color: map_get($color, cFFFFFF);
+    font-weight: 800;
+    font-size: rem(18);
+    line-height: rem(22);
+    text-align: center;
+  }
+
+  .-circle {
+    width: rem(80);
+    width: rem(80);
+    border-radius: 50%;
+  }
+}

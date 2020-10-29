@@ -1,0 +1,34 @@
+- 
+  var menuLinks = [
+    {text: "Школа яхтинга", url: "#"},
+    {text: "Технорегата", url: "#"},
+    {text: "Регаты", url: "#"},
+    {text: "Круизы", url: "#"},
+    {text: "Сообщество", url: "#"},
+    {text: "Блог", url: "#"}
+  ]
+include ../__buttons/buttons.pug
+mixin header()
+  header.header
+    .container
+      .header__logo
+        a(href="")
+          img(src="../../assets/images/logo.png")
+      .header__menu
+        each item in menuLinks
+          a(href=item.url)
+            span=item.text
+      .header__btn-block
+        +buttons({type: "circle", icon: "sun"})
+        +buttons({color: "red", text: "Присоединиться"})
+
+mixin header-nologo()
+  header.header.header__nologo
+    .container
+      .header__menu
+        each item in menuLinks
+          a(href=item.url)
+            span=item.text
+      .header__btn-block
+        +buttons({type: "circle", icon: "sun"})
+        +buttons({color: "red", type: "circle",icon:"user"})

@@ -1,0 +1,22 @@
+include ../__buttons/buttons.pug
+mixin slider-participants(participants)
+  .slider-participants__wrap
+    .slider-participants__inner.swiper-container
+      .swiper-wrapper
+        each participant in participants
+          .card-participants__wrap.swiper-slide
+            .card-participants
+              img(src=participant.img alt=participant.name)
+              .card-participants__overlay
+              .card-participants__wrap-title
+                .card-participants__name= participant.name
+                .card-participants__position= participant.position
+            .card-participants__desc
+              .card-participants__btn-close.js__btn-close
+                +buttons({color: "transparent",type: "circle", icon: "close"})
+              span= participant.desc
+              +buttons({color: "transparent", text: "Подробнее", name: ""})
+    .slider-participants__control
+      +buttons({type:"circle", icon: "prev",class:"card-participants__pagintaion--prev"})  
+      +buttons({type:"circle", icon: "next",class: "card-participants__pagintaion--next"})
+      

@@ -1,0 +1,14 @@
+.subscribe__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & button {
+    max-width: rem(291);
+    height: rem(60);
+    width: 100%;
+  }
+  & input {
+    max-width: rem(291);
+    width: 100%;
+  }
+}

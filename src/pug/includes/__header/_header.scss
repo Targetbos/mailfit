@@ -1,0 +1,50 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: rem(88);
+  box-shadow: 0 rem(15) rem(30) rgba(18, 24, 42, 0.43);
+  background: map_get($color, c252E4E);
+  .container {
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__logo {
+    display: block;
+    width: rem(178);
+    margin-bottom: rem(5);
+    a {
+      padding: 0;
+      &:hover {
+        background: none;
+      }
+    }
+  }
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    max-width: 43.5rem;
+    width: 100%;
+    margin-left: -1rem;
+  }
+  &__btn-block {
+    display: flex;
+    align-items: center;
+    max-width: 15.4rem;
+    justify-content: space-between;
+    width: 100%;
+    & button span {
+      font-size: rem(16);
+    }
+  }
+
+  &__nologo {
+    background: none !important;
+    box-shadow: none;
+    & .header__btn-block {
+      margin-top: 1rem;
+      max-width: rem(108);
+    }
+  }
+}

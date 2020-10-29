@@ -1,8 +1,465 @@
+include ../includes/__buttons/buttons.pug
+include ../includes/__social-btn/social-btn.pug
+include ../includes/__header/header.pug
+include ../includes/__subscribe/subscribe.pug
+include ../includes/__slider-participants/slider-participants.pug
+include ../includes/__events-slider/events-slider.pug
+include ../includes/__weekday-slider/weekday-slider.pug
+-
+  var menuParticipants = [
+    {text: "Все", url: "#"},
+    {text: "Корпорация", url: "#"},
+    {text: "Инвестор", url: "#"},
+    {text: "Стартап", url: "#"},
+    {text: "Техно-предприниматель", url: "#"},
+    {text: "Государство в лицах", url: "#"},
+    {text: "Команда 100 CAPTAINS", url: "#", icon:true},
+  ] 
+-
+  var participants = [
+    {name: "Иван Сидоров", position: "Инвестор", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/sidorov.jpg"},
+    {name: "Андрей Мамонтов", position: "СЕО Aerob", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/mamontov.jpg"},
+    {name: "Григорий Сергеев", position: "Инвестор", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/sergeev.jpg"},
+    {name: "Иван Иванов", position: "Инвестор", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/ivanov.jpg"},
+    {name: "Ренат Батыров", position: "Стратегическое развитие проекта, продвижение проекта", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/batirov.jpg"},
+    {name: "Константин Демидов", position: "Инвестор", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/demidov.jpg"},
+    {name: "Олег Шухов", position: "Инвестор", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/shuchov.jpg"},
+    {name: "Николай Мухин", position: "Маршруты, техническое состояние яхты и безопасность", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/muchin.jpg"},
+    {name: "Анна Голубева", position: "Инвестор", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/golubeva.jpg"},
+    {name: "Ольга Петрова", position: "Инвестор", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/petrova.jpg"},
+    {name: "Иван Сидоров", position: "Инвестор", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/sidorov.jpg"},
+    {name: "Андрей Мамонтов", position: "СЕО Aerob", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/mamontov.jpg"},
+    {name: "Григорий Сергеев", position: "Инвестор", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/sergeev.jpg"},
+    {name: "Иван Иванов", position: "Инвестор", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/ivanov.jpg"},
+    {name: "Ренат Батыров", position: "Стратегическое развитие проекта, продвижение проекта", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/batirov.jpg"},
+    {name: "Константин Демидов", position: "Инвестор", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/demidov.jpg"},
+    {name: "Олег Шухов", position: "Инвестор", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/shuchov.jpg"},
+    {name: "Николай Мухин", position: "Маршруты, техническое состояние яхты и безопасность", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/muchin.jpg"},
+    {name: "Анна Голубева", position: "Инвестор", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/golubeva.jpg"},
+    {name: "Ольга Петрова", position: "Инвестор", desc: "« Обучался в школе 100 CAPTAINS, теперь гоняю на регатах и получаю удовольствие под парусами с друзьями и семьей. Понравилась методика обучения: подходит и для людей технического склада ума, и для творческих личностей.» ", img: "assets/images/participants/petrova.jpg"},
+    ]
+-
+  var cardsService = [
+    {img: "assets/images/service/1.png",title:"Общаемся", desc:"Мы объединяем людей из технологической тусовки под парусами."},
+    {img: "assets/images/service/2.png",title:"Обучаем", desc:"Даем теорию и практику по стандартам IYT. Первый шаг на пути получения лицензии шкипера!"},
+    {img: "assets/images/service/3.png",title:"Проводим регаты", desc:"Парусные гонки, насыщенная береговая программа, адреналин состязаний и новые знакомства."},
+    {img: "assets/images/service/4.png",title:"Организуем круизы", desc:"Романтическое путешествие, тусовка или семейный отдых на борту яхты GAGARIN."},
+  ]
+-
+  var linksEvents = [
+    {text: "Регаты", num: 20},
+    {text: "Практики", num: 15},
+    {text: "Учебные курсы", num: 18},
+    {text: "Волонтерские перегоны", num: 15},
+    {text: "Вебинары", num: 15},
+  ] 
+-
+  var linksWeekday = [
+    {text: "Регаты", num: 20},
+    {text: "Практики", num: 15},
+    {text: "Учебные курсы", num: 18},
+    {text: "Волонтерские перегоны", num: 15},
+  ] 
+- 
+  var events = [
+    {img: "assets/images/events/1.jpg"
+      , date: "03.10.2020 – 12.10.2020"
+      , title: "Учебный переход Франция – Мальта"
+      , desc: "550-мильный переход из Сен-Тропе (Франция) до Валетты (Мальта)."
+      , users: [
+        "assets/images/events/users/1.jpg",
+        "assets/images/events/users/2.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        ] 
+    },{img: "assets/images/events/2.jpg"
+      , date: "13.10.2020 – 24.10.2020"
+      , title: "The Rollex Middle Sea Race 2020"
+      , desc: "Must do регата, объединяющая лучших яхтсменов всего мира."
+      , users: [] 
+    },{img: "assets/images/events/3.jpg"
+      , date: "24.10.2020 – 31.10.2020"
+      , title: "Переход Мальта – Хорватия"
+      , desc: "Для сильных духом! Для тех кто хочет испытать себя!"
+      , users: [
+        "assets/images/events/users/1.jpg",
+        "assets/images/events/users/2.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        ] 
+    },{img: "assets/images/events/4.jpg"
+      , date: "24.10.2020 – 31.10.2020"
+      , title: "Les Voiles de Saint-Tropez"
+      , desc: "550-мильный переход из Сен-Тропе (Франция) до Валетты (Мальта)."
+      , users: [
+        "assets/images/events/users/1.jpg",
+        "assets/images/events/users/2.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        ] 
+    },{img: "assets/images/events/1.jpg"
+      , date: "03.10.2020 – 12.10.2020"
+      , title: "Учебный переход Франция – Мальта"
+      , desc: "550-мильный переход из Сен-Тропе (Франция) до Валетты (Мальта)."
+      , users: [
+        "assets/images/events/users/1.jpg",
+        "assets/images/events/users/2.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        ] 
+    },{img: "assets/images/events/1.jpg"
+      , date: "03.10.2020 – 12.10.2020"
+      , title: "Учебный переход Франция – Мальта"
+      , desc: "550-мильный переход из Сен-Тропе (Франция) до Валетты (Мальта)."
+      , users: [
+        "assets/images/events/users/1.jpg",
+        "assets/images/events/users/2.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        ] 
+    },{img: "assets/images/events/1.jpg"
+      , date: "03.10.2020 – 12.10.2020"
+      , title: "Учебный переход Франция – Мальта"
+      , desc: "550-мильный переход из Сен-Тропе (Франция) до Валетты (Мальта)."
+      , users: [
+        "assets/images/events/users/1.jpg",
+        "assets/images/events/users/2.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        ] 
+    },{img: "assets/images/events/1.jpg"
+      , date: "03.10.2020 – 12.10.2020"
+      , title: "Учебный переход Франция – Мальта"
+      , desc: "550-мильный переход из Сен-Тропе (Франция) до Валетты (Мальта)."
+      , users: [
+        "assets/images/events/users/1.jpg",
+        "assets/images/events/users/2.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        ] 
+    },{img: "assets/images/events/1.jpg"
+      , date: "03.10.2020 – 12.10.2020"
+      , title: "Учебный переход Франция – Мальта"
+      , desc: "550-мильный переход из Сен-Тропе (Франция) до Валетты (Мальта)."
+      , users: [
+        "assets/images/events/users/1.jpg",
+        "assets/images/events/users/2.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        ] 
+    },{img: "assets/images/events/1.jpg"
+      , date: "03.10.2020 – 12.10.2020"
+      , title: "Учебный переход Франция – Мальта"
+      , desc: "550-мильный переход из Сен-Тропе (Франция) до Валетты (Мальта)."
+      , users: [
+        "assets/images/events/users/1.jpg",
+        "assets/images/events/users/2.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        ] 
+    },{img: "assets/images/events/1.jpg"
+      , date: "03.10.2020 – 12.10.2020"
+      , title: "Учебный переход Франция – Мальта"
+      , desc: "550-мильный переход из Сен-Тропе (Франция) до Валетты (Мальта)."
+      , users: [
+        "assets/images/events/users/1.jpg",
+        "assets/images/events/users/2.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        ] 
+    },{img: "assets/images/events/1.jpg"
+      , date: "03.10.2020 – 12.10.2020"
+      , title: "Учебный переход Франция – Мальта"
+      , desc: "550-мильный переход из Сен-Тропе (Франция) до Валетты (Мальта)."
+      , users: [
+        "assets/images/events/users/1.jpg",
+        "assets/images/events/users/2.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        ] 
+    },{img: "assets/images/events/1.jpg"
+      , date: "03.10.2020 – 12.10.2020"
+      , title: "Учебный переход Франция – Мальта"
+      , desc: "550-мильный переход из Сен-Тропе (Франция) до Валетты (Мальта)."
+      , users: [
+        "assets/images/events/users/1.jpg",
+        "assets/images/events/users/2.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        ] 
+    },{img: "assets/images/events/1.jpg"
+      , date: "03.10.2020 – 12.10.2020"
+      , title: "Учебный переход Франция – Мальта"
+      , desc: "550-мильный переход из Сен-Тропе (Франция) до Валетты (Мальта)."
+      , users: [
+        "assets/images/events/users/1.jpg",
+        "assets/images/events/users/2.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        ] 
+    },{img: "assets/images/events/1.jpg"
+      , date: "03.10.2020 – 12.10.2020"
+      , title: "Учебный переход Франция – Мальта"
+      , desc: "550-мильный переход из Сен-Тропе (Франция) до Валетты (Мальта)."
+      , users: [
+        "assets/images/events/users/1.jpg",
+        "assets/images/events/users/2.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        ] 
+    },{img: "assets/images/events/1.jpg"
+      , date: "03.10.2020 – 12.10.2020"
+      , title: "Учебный переход Франция – Мальта"
+      , desc: "550-мильный переход из Сен-Тропе (Франция) до Валетты (Мальта)."
+      , users: [
+        "assets/images/events/users/1.jpg",
+        "assets/images/events/users/2.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        ] 
+    },{img: "assets/images/events/1.jpg"
+      , date: "03.10.2020 – 12.10.2020"
+      , title: "Учебный переход Франция – Мальта"
+      , desc: "550-мильный переход из Сен-Тропе (Франция) до Валетты (Мальта)."
+      , users: [
+        "assets/images/events/users/1.jpg",
+        "assets/images/events/users/2.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        ] 
+    },{img: "assets/images/events/1.jpg"
+      , date: "03.10.2020 – 12.10.2020"
+      , title: "Учебный переход Франция – Мальта"
+      , desc: "550-мильный переход из Сен-Тропе (Франция) до Валетты (Мальта)."
+      , users: [
+        "assets/images/events/users/1.jpg",
+        "assets/images/events/users/2.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        ] 
+    },{img: "assets/images/events/1.jpg"
+      , date: "03.10.2020 – 12.10.2020"
+      , title: "Учебный переход Франция – Мальта"
+      , desc: "550-мильный переход из Сен-Тропе (Франция) до Валетты (Мальта)."
+      , users: [
+        "assets/images/events/users/1.jpg",
+        "assets/images/events/users/2.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        ] 
+    },{img: "assets/images/events/1.jpg"
+      , date: "03.10.2020 – 12.10.2020"
+      , title: "Учебный переход Франция – Мальта"
+      , desc: "550-мильный переход из Сен-Тропе (Франция) до Валетты (Мальта)."
+      , users: [
+        "assets/images/events/users/1.jpg",
+        "assets/images/events/users/2.jpg",
+        "assets/images/events/users/3.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        "assets/images/events/users/4.jpg",
+        ] 
+    },
+  ]
+-
+  var weekdaySlider = [
+    { title: "Technoregatta 2020", date: "20.09.2020", img:[
+      "assets/images/weekday/img1.png",
+      "assets/images/weekday/img2.png",
+      "assets/images/weekday/img1.png",
+      "assets/images/weekday/img2.png",
+      "assets/images/weekday/img1.png",
+      "assets/images/weekday/img1.png",
+      "assets/images/weekday/img2.png",
+      "assets/images/weekday/img1.png",
+      "assets/images/weekday/img2.png",
+      "assets/images/weekday/img1.png"]
+    },
+    {title: "Les Voiles de Saint-Tropez", date: "20.09.2020", img:[
+      "assets/images/weekday/img3.png",
+      "assets/images/weekday/img2.png",
+      "assets/images/weekday/img1.png",
+      "assets/images/weekday/img2.png",
+      "assets/images/weekday/img3.png"]
+    },
+    {title: "Les Voiles de Saint-Tropez", date: "20.09.2020", img:[
+      "assets/images/weekday/img3.png",
+      "assets/images/weekday/img2.png",
+      "assets/images/weekday/img1.png",
+      "assets/images/weekday/img2.png",
+      "assets/images/weekday/img3.png"]
+    },
+    {title: "Les Voiles de Saint-Tropez", date: "20.09.2020", img:[
+      "assets/images/weekday/img3.png",
+      "assets/images/weekday/img2.png",
+      "assets/images/weekday/img1.png",
+      "assets/images/weekday/img2.png",
+      "assets/images/weekday/img3.png"]
+    },
+    {title: "Les Voiles de Saint-Tropez", date: "20.09.2020", img:[
+      "assets/images/weekday/img3.png",
+      "assets/images/weekday/img2.png",
+      "assets/images/weekday/img1.png",
+      "assets/images/weekday/img2.png",
+      "assets/images/weekday/img3.png"]
+    },
+    {title: "Les Voiles de Saint-Tropez", date: "20.09.2020", img:[
+      "assets/images/weekday/img3.png",
+      "assets/images/weekday/img2.png",
+      "assets/images/weekday/img1.png",
+      "assets/images/weekday/img2.png",
+      "assets/images/weekday/img3.png"]
+    },
+    {title: "Les Voiles de Saint-Tropez", date: "20.09.2020", img:[
+      "assets/images/weekday/img3.png",
+      "assets/images/weekday/img2.png",
+      "assets/images/weekday/img1.png",
+      "assets/images/weekday/img2.png",
+      "assets/images/weekday/img3.png"]
+    }
+  ]
 <!DOCTYPE html>
 html(lang="ru")
   head
     meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title Document
   body
-    h1 My first page
+    .wrapper
+      .header__wrap
+        +header-nologo()
+        .container
+          .subscribe
+            h1.ship-logo <span>100 CAPTAINS</span> объединяет людей из мира технологий
+            .subscribe__desc 
+              span Присоединяйтесь к сообществу профессиональных и будущих яхтсменов из технологической индустрии  
+            .subscribe__form  
+              +subscribe()
+        .container.menu-participants
+          h2 Участники сообщества
+          .menu-participants__wrap
+            each item in menuParticipants 
+              a(href=item.url)
+                span(class=item.icon?"-icon-ships-whell":"")= item.text
+      main
+        +slider-participants(participants)
+        section.service
+          h2 Что мы делаем
+          .container.service__wrap
+            each card in cardsService
+              .card-service
+                .card-service__wrap-img
+                  img(src=card.img alt=card.title)
+                h3= card.title
+                .card-service__wrap-desc
+                  p= card.desc
+                .card-service__wrap-button
+                  +buttons({color: "transparent", text: "Подробнее"})
+        section.events
+          h2 Предстоящие мероприятия
+          .container.events__wrap
+            ul
+              each link in linksEvents
+                a(href="#")
+                  li= link.text
+                    span= link.num
+          +events-slider(events)
+          .events__wrap-buttons
+            +buttons({color: "red", text: "Смотреть все мероприятия"})
+        section.weekday
+          h2 Будни 100 Captains
+          .container.weekday__wrap
+            ul
+              each link in linksWeekday
+                a(href="#")
+                  li= link.text
+                    span= link.num
+          iframe(src="https://www.youtube.com/embed/Zo8saYF5RPU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+          h3 Technoregatta 2020
+          p.body2 20.09.2020
+          +weekday-slider(weekdaySlider)
+          +buttons({color:"red", text: "Смотреть все мероприятия"})
+        //- +buttoans({color:"transparent", text: "Продолжить"})
+        //- +buttons({color:"red", text: "Продолжить"})
+        //- +buttons({color:"red",type: "circle",icon:"triangle"})
+        //- +buttons({color:"red",type: "circle",icon:"user"})
+        //- +buttons({color:"red",type: "circle",icon:"next"})
+        //- +buttons({color:"blue", text: "Продолжить"})
+        //- +buttons({type:"circle",icon:"sun"})
+        //- +buttons({type:"circle",icon:"moon"})
+        //- +social-btn()
+      footer

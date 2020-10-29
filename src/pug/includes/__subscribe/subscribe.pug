@@ -1,0 +1,5 @@
+include ../__buttons/buttons.pug
+mixin subscribe(data)
+  .subscribe__wrap
+    input(type="text" placeholder="Почта")
+    +buttons({color: "red", text: "Стать частью сообщества"})

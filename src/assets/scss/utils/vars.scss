@@ -1,12 +1,11 @@
-@import "utils/mixins";
-@import "utils/fonts";
-@import "utils/reset";
-@import "utils/libs";
+@import "mixins";
+@import "fonts";
+// @import "reset";
+@import "libs";
 // Font
-$mainFont: "Montserrat", Helvetica, Arial, sans-serif;
-
+$mainFont: "Golos";
 //develop
-$br: 1px solid #333;
+$br: 1px solid #bbb;
 
 // Size
 $mainFontColor: #101010;
@@ -21,23 +20,23 @@ $tableWidth: 768px;
 $phoneWidth: 480px;
 $smPhoneWidth: 320px;
 
-// Main color
-$default-color: #ffffff;
-$primary-color: #444ce0;
-$success-color: #26de81;
-$danger-color: #fc5c65;
-$warning-color: #fed330;
-$light-color: #999999;
-$purple-color: #8854d0;
-
-// Neutral Color
-$neutral-primary: #303133;
-$neutral-regular: #606266;
-$neutral-secondary: #909399;
-$neutral-placeholder: #c0c4cc;
-
-// Border Color
-$border-base: #dcdfe6;
-$border-light: #e4e7ed;
-$border-lighter: #ebeef5;
-$border-lightex: #f2f6fc;
+$containerWidth: rem(1170);
+//color
+$blackTheme: true;
+$color: (
+  c12182A: #12181a,
+  c12172A: #12172a,
+  c1B2137: #1b2137,
+  cFFFFFF: #ffffff,
+  c374166: #374166,
+  c212947: #212947,
+  c5B6480: #5b6480,
+  c252E4E: #252e4e,
+  c3B4463: #3b4463,
+  cB1C1D6: #b1c1d6,
+  bgBtnRed: #b10303,
+  bgBtnRedHover: #d22a2a,
+  bgBtnBlue: #25a3e0,
+  bgBtnBlueHover: #31b8fa,
+  borderInput: #d2e2ef,
+);
