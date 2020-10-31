@@ -5,6 +5,7 @@ include ../includes/__subscribe/subscribe.pug
 include ../includes/__slider-participants/slider-participants.pug
 include ../includes/__events-slider/events-slider.pug
 include ../includes/__weekday-slider/weekday-slider.pug
+include ../includes/__partners-slider/partners-slider.pug
 -
   var menuParticipants = [
     {text: "Все", url: "#"},
@@ -392,6 +393,43 @@ include ../includes/__weekday-slider/weekday-slider.pug
       "assets/images/weekday/img3.png"]
     }
   ]
+-
+  var linksNewInBlog = [
+    {text: "Все", num: 10},
+      {text: "Практики", num: 20},
+      {text: "Регаты", num: 5},
+      {text: "Онлайн-школа", num: 8},
+      {text: "Круизы", num: 20},
+  ]
+-
+  var newsList = [
+    {category: "Регаты", 
+      date: "08.08.2020",
+      title: "Про переход Рим-Корсика-Менорка-Майорка-Пальма",
+      desc: "Мы проводим не просто гонки. Наша цель — объединить вокруг себя людей из технологического сообщества. Здесь за утренним кофе обсуждают.",
+      img: "assets/images/new-in-blog/rim.jpg"
+      },
+    {category: "Онлайн-школа", 
+      date: "30.10.2020",
+      title: "Курс IYT. Теоретическая часть",
+      desc: "Мы проводим не просто гонки. Наша цель — объединить вокруг себя людей из технологического сообщества. Здесь за утренним кофе обсуждают.",
+      img: "assets/images/new-in-blog/iyt.jpg"
+      },
+    {category: "Круизы", 
+      date: "01.08.2020",
+      title: "Та самая Пальма Де Майорка",
+      desc: "Уникальный формат отдыха, комфорт и романтика путешествий под парусом.",
+      img: "assets/images/new-in-blog/mayorka.jpg"
+      }
+  ]
+-
+  var partnersList = [
+    {style: "windy", title: "Windy.app", link: "www.windy.ru"},
+    {style: "ocean", title: "Ocean TV", link: "www.ocean.tv"},
+    {style: "kitset", title: "Kitset.ru", link: "www.kitset.ru"},
+    {style: "voda", title: "Voda-bereg.ru", link: "www.voda-bereg.ru"},
+    {style: "captains-mate", title: "Captains Mate", link: "www.captains.ru"},
+  ]
 <!DOCTYPE html>
 html(lang="ru")
   head
@@ -411,7 +449,7 @@ html(lang="ru")
               +subscribe()
         .container.menu-participants
           h2 Участники сообщества
-          .menu-participants__wrap
+          nav.menu-participants__wrap
             each item in menuParticipants 
               a(href=item.url)
                 span(class=item.icon?"-icon-ships-whell":"")= item.text
@@ -442,7 +480,7 @@ html(lang="ru")
             +buttons({color: "red", text: "Смотреть все мероприятия"})
         section.weekday
           h2 Будни 100 Captains
-          .container.weekday__wrap
+          .container
             ul
               each link in linksWeekday
                 a(href="#")
@@ -453,13 +491,47 @@ html(lang="ru")
           p.body2 20.09.2020
           +weekday-slider(weekdaySlider)
           +buttons({color:"red", text: "Смотреть все мероприятия"})
-        //- +buttoans({color:"transparent", text: "Продолжить"})
-        //- +buttons({color:"red", text: "Продолжить"})
-        //- +buttons({color:"red",type: "circle",icon:"triangle"})
-        //- +buttons({color:"red",type: "circle",icon:"user"})
-        //- +buttons({color:"red",type: "circle",icon:"next"})
-        //- +buttons({color:"blue", text: "Продолжить"})
-        //- +buttons({type:"circle",icon:"sun"})
-        //- +buttons({type:"circle",icon:"moon"})
-        //- +social-btn()
+        section.new-in-blog
+          h2 Новое в нашем блоге
+          .container
+            ul
+              each link in linksNewInBlog
+                a(href="#")
+                  li= link.text
+                    span= link.num
+          .container.preview
+            .preview__wrap
+              each news in newsList
+                .preview__inner
+                  .preview__row.font-16-22
+                    span.preview__category #{news.category}
+                    span.preview__date #{news.date}
+                  h3 #{news.title}
+                  p #{news.desc}
+                  .preview__img
+                    img(src=news.img alt=news.title)
+              +buttons({color:"red",text: "Перейти к блогу"})  
+            .subscribe__wrap
+              .subscribe
+                h3  Подписывайтесь на наши рассылки
+                p Будьте в курсе самых свежих новостей из яхтенного сообщества
+                form.subscribe-form(action="")
+                  input(type="text" name="subscribe")
+                  +buttons({color: "red", text: "Подписаться"})
+                p.subscribe__accord.accord Нажимая кнопку, я соглашаюсь с <a href="" class="accord">политикой</a> обработки персональных данных
+              .subscribe__tg
+                .subscribe__row
+                  i.subscribe__userpick 
+                  span.font-18-25 Подписывайтесь на Telegram-канал "Батыров на вахте"
+                p Неофициальный канал Рената Батырова про технологии, яхтинг и кулинарию. Ну и про рок-н-ролл иногда...) В общем, про все то, что я люблю и в чем немного разбираюсь.
+                +buttons({color: "blue", icon: "telegram", text: "Подписаться", name: "subscribe"})
+          .container.certificate
+            h2 Подарочный сертификат
+            p Хотите сделать особенный подарок? Подарите сертификат на обучение яхтингу, круиз или участие в парусной регате от 100 CAPTAINS!
+            +buttons({color: "transparent", text: "Приобрести", name: "pay-certificate"})
+            .certificate-img
+          .container.partners
+            h2 Инфопартнеры
+            +partners-slider(partnersList)
+
       footer

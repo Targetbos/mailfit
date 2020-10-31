@@ -1,0 +1,22 @@
+.partners {
+  margin-top: rem(75);
+  flex-direction: column;
+
+  &__slider {
+    display: flex;
+    min-width: 100%;
+    margin-top: rem(30);
+    border: $br;
+  }
+
+  &__slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__logo {
+    display: block;
+    min-height: rem(78);
+  }
+}

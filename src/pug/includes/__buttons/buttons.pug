@@ -1,15 +1,16 @@
 mixin buttons(data) 
-  button(class=data.type=="circle"?"-circle":""
-        class=data.color=="transparent"?"-transparent":
-              data.color=="red"? "-red":
-              data.color=="blue"? "-blue":""
-        class=data.icon=="triangle"?"-icon-triangle" : 
-              data.icon=="next" ? "-icon-next": 
-              data.icon=="prev" ? "-icon-prev": 
-              data.icon=="user" ? "-icon-user": 
-              data.icon=="sun" ? "-icon-sun": 
-              data.icon=="moon" ? "-icon-moon":
-              data.icon=="close" ? "-icon-close": ""
-        class=data.class
-      name=data.name)
-    span= data.text
+      button(class=data.type=="circle"?"-circle":""
+            class=data.color=="transparent"?"-transparent":
+                  data.color=="red"? "-red":
+                  data.color=="blue"? "-blue":""
+            class=data.icon=="triangle"?"-icon-triangle" : 
+                  data.icon=="next" ? "-icon-next": 
+                  data.icon=="prev" ? "-icon-prev": 
+                  data.icon=="user" ? "-icon-user": 
+                  data.icon=="sun" ? "-icon-sun": 
+                  data.icon=="moon" ? "-icon-moon":
+                  data.icon=="close" ? "-icon-close": 
+                  data.icon=="telegram" ? "-icon-telegram": ""
+            class=data.class
+            name=data.name)
+            span= data.text

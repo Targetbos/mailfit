@@ -82,6 +82,7 @@
     height: 100%;
     box-sizing: border-box;
     padding: rem(2);
+    cursor: pointer;
     &:first-child .weekday-thumb__image {
       opacity: 1;
     }

@@ -88,7 +88,7 @@
     background: map_get($color, c252E4E);
     position: relative;
     max-width: rem(270);
-    height: rem(502);
+    height: 31.75rem;
     margin-top: rem(45);
     border-radius: rem(9);
     box-sizing: border-box;
@@ -112,13 +112,13 @@
       border-radius: 50%;
       overflow: hidden;
     }
-    & p {
-    }
+
     & h3 {
       text-align: center;
       margin: -0.5rem 0.48rem 0;
       line-height: 1.6rem;
     }
+
     &-desc {
       display: flex;
       align-items: flex-start;
@@ -138,7 +138,7 @@
     height: 100%;
     background: map_get($color, c212947);
     border-radius: 0 0 rem(9) rem(9);
-    padding: 1.7rem rem(14) 1.6rem;
+    padding: 1.7rem rem(14) 1.9rem;
     & button {
       padding: rem(18) rem(22);
     }
@@ -149,7 +149,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin: rem(17) 0 1rem;
+    margin: rem(17) 0 rem(17);
   }
   &__icon-check {
     display: flex;

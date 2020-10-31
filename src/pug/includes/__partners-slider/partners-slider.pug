@@ -1,0 +1,10 @@
+mixin partners-slider(partnersList)
+  .partners__slider
+    .swiper-wrapper
+      each partner in partnersList
+        .swiper-slide.partners__slide
+          .partners__logo
+          .partners__title
+    .partners__navigation
+      +buttons({type:"circle", icon: "prev",class:"partners__navigation--prev"})  
+      +buttons({type:"circle", icon: "next",class: "partners__navigation--next"})

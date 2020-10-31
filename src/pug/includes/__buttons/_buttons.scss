@@ -3,7 +3,6 @@ button {
   position: relative;
   border-radius: rem(8);
   padding: 1.17rem 1.77rem;
-  margin: 0.2rem;
   outline: none;
   border: none;
   cursor: pointer;
@@ -74,6 +73,14 @@ button {
     background-size: 759% auto;
     background-position: 23% 73%;
   }
+  &.-icon-telegram:before {
+    content: "";
+    width: rem(28);
+    height: rem(28);
+    background: url("images/buttons.png") no-repeat;
+    background-size: 759% auto;
+    background-position: 67% 73%;
+  }
   &.-icon-user {
     width: rem(40);
     height: rem(40);
@@ -133,6 +140,7 @@ button {
     background-size: 640% auto;
     background-position: 2% 75%;
   }
+
   &.-icon-moon {
     display: block;
     width: rem(30);
